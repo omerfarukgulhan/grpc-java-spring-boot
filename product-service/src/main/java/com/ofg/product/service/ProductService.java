@@ -20,6 +20,11 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public Product getById(int id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+    }
+
     public Product add(Product product) {
         return productRepository.save(product);
     }
